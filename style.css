@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  background-color: #fffde7; /* jaune très clair et doux */
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 550px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+/* En-tête avec logo pleine largeur et hauteur fixe */
+.header-logo {
+  width: 100%;
+  height: 140px; /* Hauteur fixe, modifiable */
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.header-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* logo visible en entier */
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.olatomi-form h1 {
+  text-align: center;
+  color: #2E7D32; /* vert foncé */
+  margin-bottom: 1rem;
+}
+
+.olatomi-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #000000; /* noir */
+}
+
+.olatomi-form input,
+.olatomi-form select,
+.olatomi-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 2px solid #2E7D32; /* vert foncé */
+  font-size: 1rem;
+  background: #fffef1; /* jaune très très clair */
+  box-sizing: border-box;
+  color: #2E7D32;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  color: #000000; /* noir */
+}
+
+.note-paiement {
+  font-size: 0.9rem;
+  color: #2E7D32; /* vert foncé */
+  background: #fffef1; /* jaune très très clair */
+  padding: 10px;
+  border-left: 6px solid #C62828; /* rouge foncé - contraste sympa */
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.olatomi-form button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 12px;
+  background-color: #2E7D32; /* vert foncé */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.olatomi-form button:hover {
+  background-color: #1B5E20; /* vert plus foncé */
+}

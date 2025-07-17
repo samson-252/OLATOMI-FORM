@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inscription OLATOMI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <form class="olatomi-form"
+          action="https://formsubmit.co/up.ucao@gmail.com"
+          method="POST"
+          enctype="multipart/form-data"
+          >
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_subject" value="Nouvelle inscription OLATOMI" />
+
+      <div class="header-logo">
+        <img src="logo-olatomi.png" alt="Logo OLATOMI" />
+      </div>
+
+      <h1>Inscription OLATOMI</h1>
+
+      <label>Nom et Prénom</label>
+      <input type="text" name="nom" required />
+
+      <label>Sexe</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sexe" value="Homme" required> Homme</label>
+        <label><input type="radio" name="sexe" value="Femme"> Femme</label>
+        <label><input type="radio" name="sexe" value="Autre"> Autre</label>
+      </div>
+
+      <label>Date de naissance</label>
+      <input type="date" name="naissance" required />
+
+      <label>Numéro de téléphone</label>
+      <input type="tel" name="tel" required />
+
+      <label>Email</label>
+      <input type="email" name="email" required />
+
+      <label>Filière / Département</label>
+      <input type="text" name="filiere" required />
+
+      <label>Ville de provenance</label>
+      <input type="text" name="ville" required />
+
+     <label>Niveau</label>
+<select name="niveau" data-has-other="true" id="niveau" required>
+  <option value="">-- Choisir --</option>
+  <option value="L1">L1</option>
+  <option value="L2">L2</option>
+  <option value="L3">L3</option>
+  <option value="M1">M1</option>
+  <option value="M2">M2</option>
+  <option value="Autre">Autre</option>
+</select>
+<div class="other-container" style="display:none; margin-top: 0.5rem;">
+  <label>Précisez votre niveau</label>
+  <input type="text" name="niveau_autre" />
+</div>
+
+      <label>Section artistique</label>
+      <select name="section" data-has-other="true" id="section" required>
+        <option value="">-- Choisir --</option>
+        <option value="Théâtre">Théâtre</option>
+        <option value="Danse">Danse</option>
+        <option value="Musique">Musique</option>
+        <option value="Mannequinat">Mannequinat</option>
+        <option value="Arts plastiques">Arts plastiques/ Décorations</option>
+        <option value="Humour">Humour</option>
+        <option value="Impresario">Impresario</option>
+        <option value="Make-up">Make-up</option>
+        <option value="Tresse">Tresse</option>
+        <option value="Autre">Autre</option>
+      </select>
+      <div class="other-container" style="display:none; margin-top: 0.5rem;">
+        <label>Précisez votre section artistique</label>
+        <input type="text" name="section_autre" />
+      </div>
+
+      <label>Motivation (max 100 mots)</label>
+      <textarea name="motivation" rows="4" maxlength="600" required></textarea>
+
+      <label>Photo d'identité</label>
+      <input type="file" name="photo" accept="image/*" required />
+
+      <label>Mode de paiement</label>
+      <select name="paiement" data-has-other="true" id="paiement" required>
+        <option value="">-- Choisissez un mode de paiement --</option>
+        <option value="mobile">Mobile Money (MTN / Moov)</option>
+        <option value="physique">Paiement physique au bureau OLATOMI</option>
+        <option value="virement">Virement bancaire</option>
+        <option value="Autre">Autre</option>
+      </select>
+      <div class="other-container" style="display:none; margin-top: 0.5rem;">
+        <label>Précisez votre mode de paiement</label>
+        <input type="text" name="paiement_autre" />
+      </div>
+
+      <p class="note-paiement">
+        💡 <strong>Frais d'inscription :</strong> 1 100 FCFA à régler via le moyen choisi ci-dessus.<br>
+        Pour tout paiement mobile, envoyez à : <br>
+        <strong>MTN MoMo : 0167102796</strong><br>
+        <strong>Moov Money : 0163483414</strong><br>
+        📍 Paiement physique possible à la cabine F22 
+      </p>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Trouve tous les selects avec data-has-other="true"
+      const selectsWithOther = document.querySelectorAll('select[data-has-other="true"]');
+
+      selectsWithOther.forEach(select => {
+        const otherContainer = select.nextElementSibling; // Le div juste après le select
+        const otherInput = otherContainer.querySelector('input');
+
+        function toggleOther() {
+          if (select.value === 'Autre') {
+            otherContainer.style.display = 'block';
+            otherInput.setAttribute('required', 'required');
+          } else {
+            otherContainer.style.display = 'none';
+            otherInput.removeAttribute('required');
+            otherInput.value = ''; // vide le champ quand caché
+          }
+        }
+
+        // Écoute le changement
+        select.addEventListener('change', toggleOther);
+
+        // Initialisation au chargement (utile si formulaire remplit par défaut)
+        toggleOther();
+      });
+    });
+  </script>
+</body>
+</html>
