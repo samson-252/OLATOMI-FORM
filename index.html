@@ -48,20 +48,20 @@
       <label>Ville de provenance</label>
       <input type="text" name="ville" required />
 
-     <label>Niveau</label>
-<select name="niveau" data-has-other="true" id="niveau" required>
-  <option value="">-- Choisir --</option>
-  <option value="L1">L1</option>
-  <option value="L2">L2</option>
-  <option value="L3">L3</option>
-  <option value="M1">M1</option>
-  <option value="M2">M2</option>
-  <option value="Autre">Autre</option>
-</select>
-<div class="other-container" style="display:none; margin-top: 0.5rem;">
-  <label>Précisez votre niveau</label>
-  <input type="text" name="niveau_autre" />
-</div>
+      <label>Niveau</label>
+      <select name="niveau" data-has-other="true" id="niveau" required>
+        <option value="">-- Choisir --</option>
+        <option value="L1">L1</option>
+        <option value="L2">L2</option>
+        <option value="L3">L3</option>
+        <option value="M1">M1</option>
+        <option value="M2">M2</option>
+        <option value="Autre">Autre</option>
+      </select>
+      <div class="other-container" style="display:none; margin-top: 0.5rem;">
+        <label>Précisez votre niveau</label>
+        <input type="text" name="niveau_autre" />
+      </div>
 
       <label>Section artistique</label>
       <select name="section" data-has-other="true" id="section" required>
@@ -70,7 +70,7 @@
         <option value="Danse">Danse</option>
         <option value="Musique">Musique</option>
         <option value="Mannequinat">Mannequinat</option>
-        <option value="Arts plastiques">Arts plastiques/ Décorations</option>
+        <option value="Arts plastiques">Arts plastiques / Décorations</option>
         <option value="Humour">Humour</option>
         <option value="Impresario">Impresario</option>
         <option value="Make-up">Make-up</option>
@@ -82,11 +82,14 @@
         <input type="text" name="section_autre" />
       </div>
 
-      <label>Motivation (max 100 mots)</label>
-      <textarea name="motivation" rows="4" maxlength="600" required></textarea>
-
       <label>Photo d'identité</label>
       <input type="file" name="photo" accept="image/*" required />
+
+      <label>Pièces justificatives (Acte de naissance, CIP ou carte biométrique)</label>
+      <input type="file" name="pieces" accept="application/pdf" required />
+
+      <label>Motivation (max 100 mots)</label>
+      <textarea name="motivation" rows="4" maxlength="600" required></textarea>
 
       <label>Mode de paiement</label>
       <select name="paiement" data-has-other="true" id="paiement" required>
@@ -115,11 +118,10 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Trouve tous les selects avec data-has-other="true"
       const selectsWithOther = document.querySelectorAll('select[data-has-other="true"]');
 
       selectsWithOther.forEach(select => {
-        const otherContainer = select.nextElementSibling; // Le div juste après le select
+        const otherContainer = select.nextElementSibling;
         const otherInput = otherContainer.querySelector('input');
 
         function toggleOther() {
@@ -129,14 +131,11 @@
           } else {
             otherContainer.style.display = 'none';
             otherInput.removeAttribute('required');
-            otherInput.value = ''; // vide le champ quand caché
+            otherInput.value = '';
           }
         }
 
-        // Écoute le changement
         select.addEventListener('change', toggleOther);
-
-        // Initialisation au chargement (utile si formulaire remplit par défaut)
         toggleOther();
       });
     });
