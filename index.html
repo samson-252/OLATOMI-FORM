@@ -8,11 +8,12 @@
 </head>
 <body>
   <div class="form-container">
+
     <form class="olatomi-form"
           action="https://formsubmit.co/up.ucao@gmail.com"
           method="POST"
           enctype="multipart/form-data"
-          >
+    >
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_subject" value="Nouvelle inscription OLATOMI" />
@@ -21,7 +22,14 @@
         <img src="logo-olatomi.png" alt="Logo OLATOMI" />
       </div>
 
-      <h1>Inscription OLATOMI</h1>
+      <!-- Contexte de présentation -->
+    <section class="context-section" style="background-color: #f9f9f9; padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem;">
+      <p style="font-size: 1rem; color: #555; text-align: justify;">
+        <strong>L’Union Culturelle et Artistique Olatomi de l’Université de Parakou (UCAO-UP)</strong> est une organisation estudiantine dédiée à la promotion de la culture et de l’art sur le campus. Elle offre un cadre d’expression et de professionnalisation aux étudiants à travers diverses disciplines artistiques et culturelles.
+      </p>
+    </section>
+
+      <h1>Formulaire d'inscription</h1>
 
       <label>Nom et Prénom</label>
       <input type="text" name="nom" required />
@@ -85,32 +93,14 @@
       <label>Photo d'identité</label>
       <input type="file" name="photo" accept="image/*" required />
 
-      <label>Pièces justificatives (Acte de naissance, CIP ou carte biométrique)</label>
-      <input type="file" name="pieces" accept="application/pdf" required />
+      <label>Acte de naissance (PDF uniquement)</label>
+      <input type="file" name="acte_naissance" accept="application/pdf" required />
+
+      <label>CIP ou carte biométrique (PDF uniquement)</label>
+      <input type="file" name="cip_carte" accept="application/pdf" required />
 
       <label>Motivation (max 100 mots)</label>
       <textarea name="motivation" rows="4" maxlength="600" required></textarea>
-
-      <label>Mode de paiement</label>
-      <select name="paiement" data-has-other="true" id="paiement" required>
-        <option value="">-- Choisissez un mode de paiement --</option>
-        <option value="mobile">Mobile Money (MTN / Moov)</option>
-        <option value="physique">Paiement physique au bureau OLATOMI</option>
-        <option value="virement">Virement bancaire</option>
-        <option value="Autre">Autre</option>
-      </select>
-      <div class="other-container" style="display:none; margin-top: 0.5rem;">
-        <label>Précisez votre mode de paiement</label>
-        <input type="text" name="paiement_autre" />
-      </div>
-
-      <p class="note-paiement">
-        💡 <strong>Frais d'inscription :</strong> 1 100 FCFA à régler via le moyen choisi ci-dessus.<br>
-        Pour tout paiement mobile, envoyez à : <br>
-        <strong>MTN MoMo : 0167102796</strong><br>
-        <strong>Moov Money : 0163483414</strong><br>
-        📍 Paiement physique possible à la cabine F22 
-      </p>
 
       <button type="submit">Envoyer</button>
     </form>
